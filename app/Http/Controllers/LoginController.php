@@ -28,7 +28,7 @@ class LoginController extends Controller
 
     public function authenticate(Request $request){
 
-        try{
+        // try{
 
             $Usu_Usuario = User::where('Usu_Email', $request->input('Usu_Email'))->first();
 
@@ -68,14 +68,14 @@ class LoginController extends Controller
             ->withErrors($validator)
             ->withInput();
 
-        } catch (\Exception $e) {
+        // } catch (\Exception $e) {
 
             Session::flash('mensagem_inativo', 'Ocorreu algum erro ao fazer o login. Favor tentar novamente!');
             // \Session::flash('descricao_aviso', 'Aviso: ' . $e->getMessage());
 
             return redirect()->route('login');
 
-        }
+        // }
     }
 
     public function logout(){
