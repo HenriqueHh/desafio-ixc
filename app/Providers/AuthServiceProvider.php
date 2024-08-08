@@ -25,6 +25,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('user-pessoa', function($user){
+            return $user->Usu_TipoPessoa === 'F'; // F para Pessoa Fisica
+        });
+
+        Gate::define('user-lojista', function($user){
+            return $user->Usu_TipoPessoa === 'J'; // F para Pessoa Juridica/Lojista
+        });
+
     }
 }
