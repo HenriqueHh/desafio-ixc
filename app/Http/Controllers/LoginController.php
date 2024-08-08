@@ -61,7 +61,6 @@ class LoginController extends Controller
                 return redirect()->route('tela_inicial');
             }
 
-
             $validator->errors()->add('password', 'E-mail e/ou senha incorretos!');
 
             return redirect()->route('login')
