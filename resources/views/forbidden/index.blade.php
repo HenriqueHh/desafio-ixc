@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 @section('plugins.Datatables', true)
 
-@section('title', 'Sem permissão - Finestra Móveis')
+@section('title', 'Sem permissão')
 
 @section('content')
     <br>
@@ -17,7 +17,6 @@
                 </div>
                 <div class="card-footer">
                     <div class="row justify-content-center">
-                        {{-- <p class="text-muted"> Finestra Indústria e Comércio de Madeiras LTDA.</p> --}}
                         <p class="text-muted"> Telefone: (49) 99918-7545 </p>
                         <p class="text-muted"> E-mail: henrique.hohn11@gmail.com</p>
                     </div>

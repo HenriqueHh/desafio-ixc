@@ -32,7 +32,6 @@ class NovaTransferenciaMail extends Mailable
     {
         return $this
         ->subject('PagamentoDesafioIXC')
-        //->replyto('comercial@finestramoveis.com')
         ->view('transferencia.mail.index')->with(['transferencia' => $this->transferencia]);
     }
 }

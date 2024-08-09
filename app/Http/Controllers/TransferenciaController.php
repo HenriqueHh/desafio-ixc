@@ -104,10 +104,10 @@ class TransferenciaController extends Controller
                 }
 
             } else {
-                // Tratar erros
+
                 $status = $response->status();
-                $error = $response->body();
-                return response()->json(['error' => 'Failed to fetch data'], $status);
+
+                return response()->json(['error' => 'Falha na comunicação'], $status);
             }
 
 
@@ -174,7 +174,7 @@ class TransferenciaController extends Controller
                 ]
             );
 
-            $this->enviaEmailComprovante($MovValor, $UsuCodigoDestino, $loggedCodigo, $Mov_ContaMovimentacao);
+            $this->enviaEmailComprovante($UsuCodigoDestino, $loggedCodigo, $Mov_ContaMovimentacao);
 
             DB::commit();
 
@@ -194,7 +194,7 @@ class TransferenciaController extends Controller
         }
     }
 
-    function enviaEmailComprovante($MovValor, $UsuCodigoDestino, $loggedCodigo, $Mov_ContaMovimentacao){
+    function enviaEmailComprovante($UsuCodigoDestino, $loggedCodigo, $Mov_ContaMovimentacao){
 
         $response = Http::get('https://66ad1f3cb18f3614e3b478f5.mockapi.io/v1/send');
 
@@ -227,8 +227,8 @@ class TransferenciaController extends Controller
         } else {
 
             $status = $response->status();
-            $error = $response->body();
-            return response()->json(['error' => 'Failed to fetch data'], $status);
+
+            return response()->json(['error' => 'Falha na comunicação'], $status);
         }
     }
 

@@ -20,7 +20,7 @@ class MovContaMovimentacao extends Model
         'Mov_Id',
         'Usu_CodigoOrigem',
         'Mov_Valor',
-        'Mov_Status',
+        'Mov_Status', // F = Finalizadas
         'Mov_Data',
         'Usu_CodigoDestino',
     ];

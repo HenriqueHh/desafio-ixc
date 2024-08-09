@@ -22,7 +22,7 @@ class MovimentacaoController extends Controller
         $Usu_Usuario = User::where('Usu_Codigo', $loggedCodigo)->first();
         $Usu_Conta = UsuConta::where('Usu_Codigo', $loggedCodigo)->first();
 
-        $Mov_ContaMovimentacao = MovContaMovimentacao::whereRaw("Usu_CodigoDestino = $loggedCodigo OR Usu_CodigoOrigem = $loggedCodigo")
+        $Mov_ContaMovimentacao = MovContaMovimentacao::whereRaw("Usu_CodigoDestino = $loggedCodigo OR Usu_CodigoOrigem = $loggedCodigo and Mov_Status = 'F'")
         ->orderBy('Mov_Data', 'desc')
         ->get();
 
@@ -37,7 +37,7 @@ class MovimentacaoController extends Controller
         $Usu_Usuario = User::where('Usu_Codigo', $loggedCodigo)->first();
         $Usu_Conta = UsuConta::where('Usu_Codigo', $loggedCodigo)->first();
 
-        $Mov_ContaMovimentacao = MovContaMovimentacao::whereRaw("Usu_CodigoDestino = $loggedCodigo OR Usu_CodigoOrigem = $loggedCodigo")
+        $Mov_ContaMovimentacao = MovContaMovimentacao::whereRaw("Usu_CodigoDestino = $loggedCodigo OR Usu_CodigoOrigem = $loggedCodigo and Mov_Status = 'F'")
         ->orderBy('Mov_Data', 'desc')
         ->get();
 

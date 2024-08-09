@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Novo Cliente - Finestra Móveis')
+@section('title', 'Cadastro de Usuário')
 
 @section('content')
     @if($errors->any())

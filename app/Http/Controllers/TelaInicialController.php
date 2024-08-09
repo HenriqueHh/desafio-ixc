@@ -36,12 +36,12 @@ class TelaInicialController extends Controller
         $Usu_Conta = UsuConta::where('Usu_Codigo', $loggedCodigo)->first();
 
         $TotalEntradas = MovContaMovimentacao::selectRaw('sum(Mov_Valor) as valorTotal')
-        ->whereRaw("Usu_CodigoDestino = $loggedCodigo")
+        ->whereRaw("Usu_CodigoDestino = $loggedCodigo and Mov_Status = 'F'")
         ->groupBy('Usu_CodigoDestino')
         ->first();
 
         $TotalSaidas = MovContaMovimentacao::selectRaw('sum(Mov_Valor) as valorTotal')
-        ->whereRaw("Usu_CodigoOrigem = $loggedCodigo")
+        ->whereRaw("Usu_CodigoOrigem = $loggedCodigo and Mov_Status = 'F'")
         ->groupBy('Usu_CodigoOrigem')
         ->first();
 
