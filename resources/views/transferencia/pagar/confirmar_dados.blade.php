@@ -37,15 +37,13 @@
                         <label  class="col-sm-12 col-form-label">CNPJ/CPF do Recebedor</label>
                         <input type="text" readonly required name="Usu_CodigoDestino" value="{{$Usu_Usuario->Usu_Codigo}}" class="form-control"/>
                     </div>
-
                     <div class="col-sm-5">
                         <label  class="col-sm-12 col-form-label">Nome do Recebedor</label>
                         <input type="text" readonly required name="Usu_NomeCompleto" value="{{$Usu_Usuario->Usu_NomeCompleto}}" class="form-control"/>
                     </div>
-
                     <div class="col-sm-3">
                         <label class="col-sm-12 col-form-label">Valor R$</label>
-                        <input type="text" readonly required name="Mov_Valor" id="Mov_Valor" value="{{number_format($valorTransferencia,2,',','.')}}" maxlength="20" size='23' maxlength='23' data-precision='2' data-thousands='.' data-decimal=',' autocomplete="off" class="form-control"/>
+                        <input type="text" readonly required name="Mov_Valor" id="Mov_Valor" value="{{$valorTransferencia}}" maxlength="20" size='23' maxlength='23' data-precision='2' data-thousands='.' data-decimal=',' autocomplete="off" class="form-control"/>
                     </div>
                 </div>
             </div>

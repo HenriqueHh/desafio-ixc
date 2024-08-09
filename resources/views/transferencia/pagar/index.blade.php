@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 @section('title', 'Transferência')
 @section('content')
-
+<meta charset="UTF-8">
     <br>
     @if (Session::has('mensagem_sucesso'))
         <div class="alert alert-success">
@@ -42,27 +42,19 @@
                 <div style="padding: 10px" class="form-group row">
 
                     <div class="col-sm-5">
-                        <label class="col-sm-12 col-form-label">CNPJ/CPF Recebedor</label>
-                        <input type="text" required name="Usu_CodigoDestino" autofocus="on" placeholder="Digite o CNPJ/CPF" class="form-control cnpj" maxlength="18"/>
+                        <label class="col-sm-12 col-form-label">CNPJ/CPF Recebedor *</label>
+                        <input type="text" required name="Usu_CodigoDestino" autofocus="on" autocomplete="off" placeholder="Digite o CNPJ/CPF" class="form-control cnpj" maxlength="18"/>
                     </div>
                     @include('includes.formatar_documento')
-                    @include('includes.formatar_moeda')
-
                     <div class="col-sm-3">
-                        <label class="col-sm-12 col-form-label">Valor *</label>
-                        <input type="text" required name="Mov_Valor" id="Mov_Valor" maxlength="20" size='23' autocomplete="off" class="form-control moeda" />
+                        <label class="col-sm-12 col-form-label">Valor R$ *</label>
+                        <input type="text" required name="Mov_Valor" id="Mov_Valor" maxlength="20" size='23' maxlength='23' data-precision='2' data-thousands='.' data-decimal=',' autocomplete="off" class="form-control"/>
                     </div>
-
                     <div class="col-sm-3">
                         <label class="col-sm-12 col-form-label">Meu Saldo:</label>
                         <label class="col-sm-12 col-form-label">@include('includes.saldo_total')</label>
                     </div>
                 </div>
-            </div>
-
-            <!-- Div para exibir a mensagem de salvamento -->
-            <div id="mensagemSalvando" style="display: none;">
-                {{-- @include('mensagem_salvando.msgCliente') --}}
             </div>
 
             <div style="margin-left: 5px" class="form-group row">
@@ -76,5 +68,15 @@
         </form>
         </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function($){
+
+           $('#Mov_Valor').maskMoney();
+
+        })
+    </script>
 @endsection
 

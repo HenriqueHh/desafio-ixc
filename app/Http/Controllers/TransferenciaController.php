@@ -53,7 +53,6 @@ class TransferenciaController extends Controller
             // Abaixo é buscado o id do usuário logado, que é o codumento CPF/CNPJ
             $loggedCodigo = intval(Auth::id());
 
-
             // remove todos os caracteres espeficicados e deixa somente os números.
             $UsuCodigoDestino = str_replace(['.', '/', '-'], '', $request->input('Usu_CodigoDestino'));
             $valorTransferencia = str_replace(['R$'], '', $request->input('Mov_Valor'));
@@ -78,7 +77,7 @@ class TransferenciaController extends Controller
             // Verifica se o usuário de destino tem saldo suficiente para realizar a transferencia
             $VerificarSaldoOrigem = UsuConta::where('Usu_Codigo', $loggedCodigo)->first();
 
-            if($VerificarSaldoOrigem->Usu_ContaSaldo < $valorTransferencia){
+            if($VerificarSaldoOrigem->Usu_ContaSaldo < $this->ConvertMoedaBD($valorTransferencia)){
 
                 Session::flash('mensagem_saldo_insuficiente', 'Desculpe, mas seu saldo é insuficiente para realizar essa operação!');
                 return redirect()->route('transferencia');
